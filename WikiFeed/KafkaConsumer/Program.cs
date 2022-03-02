@@ -10,8 +10,9 @@ namespace KafkaConsumer
     {
         static async Task Main(string[] args)
         {
-            var clientConfig = KafkaConfigFactory.GetConfluenceConfig();
-            WikiConsumer.Consume(KafkaConfig.Topic, clientConfig);
+            //var clientConfig = KafkaConfigFactory.GetConfluenceConfig();
+            var localConfig = new ProducerConfig { BootstrapServers = "localhost:9092" };
+            WikiConsumer.Consume(KafkaConfig.LocalTopic, localConfig);
 
             Console.WriteLine("Exiting");
         }
