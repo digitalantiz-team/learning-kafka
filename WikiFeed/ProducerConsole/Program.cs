@@ -11,14 +11,14 @@ namespace ProducerConsole
     {
         static async Task Main(string[] args)
         {
-            //var clientConfig = KafkaConfigFactory.GetConfluenceConfig();
-            var localConfig = new ProducerConfig { BootstrapServers = "localhost:9092" };
+            var config = KafkaConfigFactory.GetConfluenceConfig();
+            //var config = new ProducerConfig { BootstrapServers = BootstrapServers.Cloud };
 
             // Configure the client with credentials for connecting to Confluent.
             // Don't do this in production code. For more information, see 
             // https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets.
 
-            await WikiProducer.Produce(KafkaConfig.LocalTopic, localConfig);
+            await WikiProducer.Produce(KafkaConfig.Topic, config);
 
             Console.WriteLine("Exiting");
         }

@@ -7,7 +7,7 @@ namespace Common
         public static ClientConfig GetConfluenceConfig()
         {
             var clientConfig = new ClientConfig();
-            clientConfig.BootstrapServers = KafkaConfig.BootstrapServers;
+            clientConfig.BootstrapServers = BootstrapServers.Cloud;
             clientConfig.SecurityProtocol = Confluent.Kafka.SecurityProtocol.SaslSsl;
             clientConfig.SaslMechanism = Confluent.Kafka.SaslMechanism.Plain;
             clientConfig.SaslUsername = KafkaConfig.SaslUsername;
